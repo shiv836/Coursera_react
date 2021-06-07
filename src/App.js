@@ -1,4 +1,4 @@
-
+import {BrowserRouter} from 'react-router-dom';
 import {Form, Navbar, NavbarBrand} from 'reactstrap';
 import Main from './components/MainComponent';
 import './App.css';
@@ -9,10 +9,12 @@ class App extends Component
 
 render() {
   return (
+    <BrowserRouter>
     <div>
     
     <Main/>
     </div>
+    </BrowserRouter>
   );
 }
 }
