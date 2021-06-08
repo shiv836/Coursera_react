@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
-    CardTitle } from 'reactstrap';
-
+    CardTitle,Breadcrumb,BreadcrumbItem } from 'reactstrap';
+import {Link} from'react-router-dom';
       
   function  RenderDish({dish}) {
         if (dish != null)
@@ -24,9 +24,10 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
             );
     }
    function RenderComments({commentPart}) {
-        if(commentPart!=null)
+      let com=commentPart;
+        if(com!=null)
         {
-            let com=commentPart.comments;
+            
         const commArray = com.map((comin) => {
             var ts=new Date(comin.date);
             return (
@@ -61,15 +62,26 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
     }
     function DishDetail(props)
     {
-    
+      
         return(
             <div className="container">
+                 <div className="row">
+                    <Breadcrumb>
+                   
+                    <BreadcrumbItem ><Link to="/Menu">Menu</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+                    </Breadcrumb>
+                    <div className='col-12'>
+                        <h3>{props.dish.name}</h3>
+                        <hr/>
+                    </div>
+                </div>
+              
             <div className="row">
            
              < RenderDish dish={props.dish}/>
-              
-              
-           < RenderComments commentPart={props.dish}/>
+           
+             < RenderComments commentPart={props.comment}/>
             
           </div>
           </div>
