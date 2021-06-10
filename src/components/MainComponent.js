@@ -11,6 +11,7 @@ import { COMMENTS } from '../shared/comments';
 import { LEADERS } from '../shared/leaders';
 import {Switch,Route,Redirect} from 'react-router-dom';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 class Main extends Component {
 
   constructor(props) {
@@ -35,6 +36,9 @@ class Main extends Component {
           comment={this.state.comments.filter((comments)=>comments.featured)[0]}/>
       );
     }
+    const AboutUs=()=>{
+      return <About leaders={this.state.leaders}/>
+    }
     const DishWithId=({match})=>
     {
 return (
@@ -58,6 +62,7 @@ return (
          <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
          <Route path="/menu/:dishId" component={DishWithId}/>
          <Route exact path='/contactus' component={ContactUs} />
+         <Route exact path='/aboutus' component={AboutUs} />
          <Redirect to="/home" />
        </Switch>
         <Footer/>
