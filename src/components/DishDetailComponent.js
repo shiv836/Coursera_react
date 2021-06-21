@@ -3,7 +3,7 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle,Breadcrumb,BreadcrumbItem } from 'reactstrap';
 import {Link} from'react-router-dom';
-      
+import CommentForm from './CommentFormComponent';  
   function  RenderDish({dish}) {
         if (dish != null)
             return(
@@ -23,7 +23,7 @@ import {Link} from'react-router-dom';
                 <div></div>
             );
     }
-   function RenderComments({commentPart}) {
+   function RenderComments({commentPart,addComment,dishId}) {
       let com=commentPart;
         if(com!=null)
         {
@@ -50,6 +50,9 @@ import {Link} from'react-router-dom';
             <div className="col-12 col-md-5 m-1">
                 <h4>Comments</h4>
                 {commArray}
+                <div className='mt-2'>
+                <CommentForm dishId={dishId} addComment={addComment}/>
+                </div>
             </div>
         )
       
@@ -81,7 +84,10 @@ import {Link} from'react-router-dom';
            
              < RenderDish dish={props.dish}/>
            
-             < RenderComments commentPart={props.comment}/>
+             < RenderComments commentPart={props.comment}
+              addComment={props.addComment}
+              dishId={props.dish.id}/>
+           
             
           </div>
           </div>
