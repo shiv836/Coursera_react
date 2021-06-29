@@ -21,7 +21,7 @@ toggleModal() {
     });
   }
  handleSubmit(values) {
-  this.props.addComment(this.props.dishId,values.rating,values.yourname,values.message);
+  this.props.postComment(this.props.dishId,values.rating,values.yourname,values.message);
     
 }
     render()

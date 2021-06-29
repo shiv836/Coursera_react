@@ -25,7 +25,7 @@ import {baseUrl} from '../shared/baseUrl';
                 <div></div>
             );
     }
-   function RenderComments({commentPart,addComment,dishId}) {
+   function RenderComments({commentPart,postComment,dishId}) {
       let com=commentPart;
         if(com!=null)
         {
@@ -53,7 +53,7 @@ import {baseUrl} from '../shared/baseUrl';
                 <h4>Comments</h4>
                 {commArray}
                 <div className='mt-2'>
-                <CommentForm dishId={dishId} addComment={addComment}/>
+                <CommentForm dishId={dishId} postComment={postComment}/>
                 </div>
             </div>
         )
@@ -108,7 +108,7 @@ import {baseUrl} from '../shared/baseUrl';
              < RenderDish dish={props.dish}/>
            
              < RenderComments commentPart={props.comment}
-              addComment={props.addComment}
+              postComment={props.postComment}
               dishId={props.dish.id}/>
            
             
