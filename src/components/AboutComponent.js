@@ -2,13 +2,17 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LEADERS } from '../shared/leaders';
+import {baseUrl} from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 function RenderLeader ({lead}) {
     let leaders = lead.map((leader) => {
         return (
             <div key={leader.id} className="col-12 mt-5"> 
+            <Stagger in>
+            <Fade in>
             <Media tag="li">
             <Media  left middle>
-            <Media object src={leader.image} alt={leader.name} />
+            <Media object src={baseUrl+leader.image} alt={leader.name} />
           </Media>
           <Media body className="ml-5">
             <Media heading>
@@ -19,6 +23,8 @@ function RenderLeader ({lead}) {
           {leader.description}
           </Media>
           </Media>
+          </Fade>
+          </Stagger>
           </div>
         );
     });

@@ -48,7 +48,8 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                   <ul className="list-group">
                   <Stagger in>
                       
-                  <li className="list-group-item">{comin.comment}
+                  <li className="list-group-item">
+                      {comin.comment}
                   <div>--{comin.author}, {ts.toLocaleDateString()}</div>
                   
                   </li>
